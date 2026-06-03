@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "821042028276",
+    "project_id": "organisync-bdca5",
+    "storage_bucket": "organisync-bdca5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:821042028276:android:369135003c050f71d0c8a1",
+        "android_client_info": {
+          "package_name": "com.example.organisync"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "821042028276-e9rl7eqcfffq69lgqkd2bh55tcmhalpk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.organisync",
+            "certificate_hash": "be4487a0000d258877300681a5b13e148a6dc87a"
+          }
+        },
+        {
+          "client_id": "821042028276-kqcmc9g468f28gn3u53f91e4e5i5an5j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRBh43rW5LLE09WFpcoEDOVXhfgoGMQjc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "821042028276-kqcmc9g468f28gn3u53f91e4e5i5an5j.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "821042028276-0oiv9e3t6gpgel2jrdrgvbha5c5vt7sa.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.organisync"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
