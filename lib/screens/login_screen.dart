@@ -58,28 +58,42 @@ class _LoginScreenState extends State<LoginScreen> {
       _isLoading = true;
     });
 
-    final user = await AuthService.instance.signInWithGoogle();
+    try {
+      final user = await AuthService.instance.signInWithGoogle();
 
-    setState(() {
-      _isLoading = false;
-    });
+      setState(() {
+        _isLoading = false;
+      });
 
-    if (!mounted) return;
-
-    if (user != null) {
-      await DataService.instance.refreshData();
       if (!mounted) return;
-      Navigator.pushReplacementNamed(context, '/main');
-      return;
-    }
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('Login Google gagal atau dibatalkan',
-            style: GoogleFonts.poppins()),
-        backgroundColor: Colors.red,
-      ),
-    );
+      if (user != null) {
+        await DataService.instance.refreshData();
+        if (!mounted) return;
+        Navigator.pushReplacementNamed(context, '/main');
+        return;
+      }
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Login Google dibatalkan',
+              style: GoogleFonts.poppins()),
+          backgroundColor: Colors.orange,
+        ),
+      );
+    } catch (e) {
+      setState(() {
+        _isLoading = false;
+      });
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(e.toString().replaceAll('Exception: ', ''),
+              style: GoogleFonts.poppins()),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
   }
 
   @override
@@ -254,43 +268,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ],
                           ),
                         ),
-                        const SizedBox(height: 18),
-                        Container(
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: const Color(0xFFF5F0FF),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('Akun demo:',
-                                  style: GoogleFonts.poppins(fontSize: 12, color: Color(0xFF6C3CBC), fontWeight: FontWeight.w600)),
-                              const SizedBox(height: 4),
-                              Row(
-                                children: [
-                                  const Icon(Icons.admin_panel_settings_rounded, size: 16, color: Color(0xFF6C3CBC)),
-                                  const SizedBox(width: 6),
-                                  Flexible(
-                                    child: Text('Admin: admin@organisync.com / admin123',
-                                        style: GoogleFonts.poppins(fontSize: 12, color: Colors.black87)),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 2),
-                              Row(
-                                children: [
-                                  const Icon(Icons.school_rounded, size: 16, color: Color(0xFF9B59B6)),
-                                  const SizedBox(width: 6),
-                                  Flexible(
-                                    child: Text('Mahasiswa: mahasiswa@organisync.com / user123',
-                                        style: GoogleFonts.poppins(fontSize: 12, color: Colors.black87)),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
+
                         const SizedBox(height: 16),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,

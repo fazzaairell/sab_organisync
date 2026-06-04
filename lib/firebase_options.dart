@@ -64,7 +64,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '821042028276',
     projectId: 'organisync-bdca5',
     storageBucket: 'organisync-bdca5.firebasestorage.app',
-    iosBundleId: 'com.example.organisync',
+    iosBundleId: 'com.penacode.organisync',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -73,7 +73,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '821042028276',
     projectId: 'organisync-bdca5',
     storageBucket: 'organisync-bdca5.firebasestorage.app',
-    iosBundleId: 'com.example.organisync',
+    iosBundleId: 'com.penacode.organisync',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(

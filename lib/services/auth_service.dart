@@ -93,9 +93,8 @@ class AuthService {
       }
     } catch (e) {
       print('Error Google Sign In: $e');
-      return null;
+      throw Exception('Error: $e');
     }
-    return null;
   }
 
   Future<bool> login(String email, String password) async {
